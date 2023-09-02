@@ -8,3 +8,4 @@
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/.gitignore
 /.idea/runConfigurations.xml
+/target/classes/MainTests.class
