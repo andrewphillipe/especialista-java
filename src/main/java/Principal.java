@@ -2,22 +2,19 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        Carro meuCarro = new Carro();
+        Pessoa proprietario = new Pessoa();
+        proprietario.setNome("Joao");
+        proprietario.setCpf("111.111.111-11");
+        proprietario.setAnoNascimento(1985);
 
-        meuCarro.setModelo("HRV");
-        meuCarro.setAnoFabricacao(2021);
+        Carro carro = new Carro();
+        carro.setAnoFabricacao(2021);
+        carro.setCor("Verde");
+        carro.setFabricante("Honda");
+        carro.setModelo("HR-V");
+        carro.setProprietario(proprietario);
 
-        System.out.printf("Modelo: %s%n", meuCarro.getModelo());
-        System.out.printf("Ano: %d%n", meuCarro.getAnoFabricacao());
 
-
-        Carro seuCarro = new Carro();
-
-        seuCarro.setModelo("HRV");
-        seuCarro.setAnoFabricacao(2021);
-
-        System.out.printf("Modelo: %s%n", seuCarro.getModelo());
-        System.out.printf("Ano: %d%n", seuCarro.getAnoFabricacao());
     }
 
 }

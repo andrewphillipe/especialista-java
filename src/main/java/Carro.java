@@ -4,16 +4,9 @@ public class Carro {
     private String modelo;
     private String cor;
     private int anoFabricacao;
+    private Pessoa proprietario;
 
     public Carro() {
-
-    }
-
-    public Carro(String fabricante, String modelo, String cor, int anoFabricacao) {
-        this.fabricante = fabricante;
-        this.modelo = modelo;
-        this.cor = cor;
-        this.anoFabricacao = anoFabricacao;
     }
 
     public String getFabricante() {
@@ -46,6 +39,14 @@ public class Carro {
 
     public void setAnoFabricacao(int anoFabricacao) {
         this.anoFabricacao = anoFabricacao;
+    }
+
+    public Pessoa getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Pessoa proprietario) {
+        this.proprietario = proprietario;
     }
 
     @Override
