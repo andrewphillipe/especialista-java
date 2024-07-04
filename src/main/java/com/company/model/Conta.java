@@ -23,7 +23,7 @@ public class Conta {
     }
 
     public void depositar(double valorDeposito) {
-        if (valorDeposito < 1) {
+        if (valorDeposito <= 0) {
             throw new IllegalStateException("Valor do depósito nao pode ser menor que 1: ");
         }
 
@@ -35,8 +35,10 @@ public class Conta {
         System.out.println("Nome do titular: " + titular.getNome());
         System.out.println("Agência: " + agencia);
         System.out.println("Número da conta: " + numero);
-        System.out.printf("Saldo da conta: %.2f", this.saldo);
+        System.out.printf("Saldo da conta: %.2f%n", this.saldo);
     }
 
-
+    public double getSaldo() {
+        return saldo;
+    }
 }

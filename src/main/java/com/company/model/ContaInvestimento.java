@@ -10,7 +10,9 @@ public class ContaInvestimento extends Conta {
     }
 
     public void creditarRendimentos(double percentualJuros) {
-        this.valorTotalRendimentos = (valorTotalRendimentos * percentualJuros) / 100;
+        double valorRendimentos = (getSaldo() * percentualJuros) / 100;
+        this.valorTotalRendimentos += valorRendimentos;
+        depositar(this.valorTotalRendimentos);
     }
 
 }
