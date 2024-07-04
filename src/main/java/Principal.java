@@ -1,25 +1,20 @@
-import java.time.LocalDate;
+import com.company.model.ContaEspecial;
+import com.company.model.Titular;
+
+import java.util.Locale;
 
 public class Principal {
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
 
-        Pessoa proprietario = new Pessoa();
-        proprietario.setNome("Joao");
-        proprietario.setCpf("111.111.111-11");
-        proprietario.setAnoNascimento(1985);
+        Titular titular = new Titular("João", "12365478945");
 
-        Carro carro = new Carro();
-        carro.setAnoFabricacao(2021);
-        carro.setCor("Verde");
-        carro.setFabricante("Honda");
-        carro.setModelo("HR-V");
-        carro.setPrecoCompra(100000.0);
-        carro.setProprietario(proprietario);
+        ContaEspecial contaEspecial = new ContaEspecial(titular, 123456, 4445, 5.0D, 10.0D, 500.0D);
+        contaEspecial.sacar(500);
+        contaEspecial.imprimirDemonstrativo();
 
-        System.out.println("Tempo de uso: " + carro.calcularTempoDeUso());
-        System.out.printf("Valor de revenda: R$ %.2f%n", carro.calcularValorRevenda());
+
     }
-
 }
 
