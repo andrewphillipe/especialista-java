@@ -12,29 +12,39 @@ public class ContaEspecial extends ContaInvestimento {
     }
 
     public void debitarTarifaMensal() {
-
+        sacar(getTarifaMensal());
     }
 
     public double valorDisponivel() {
-        return this.saldo + limiteChequeEspecial;
+        return getSaldo() + getLimiteChequeEspecial();
     }
 
     @Override
-    public void sacar(double valorsaque) {
-        if (valorDisponivel() < valorsaque) {
+    protected void preValidarValorSaque(double valorSaque) {
+        if (valorDisponivel() < valorSaque) {
             throw new IllegalStateException(String.format("Saldo da conta menor que o valor solicitado. Saldo em conta: %.2f", saldo));
         }
-
-        this.saldo = this.saldo - valorsaque;
-
     }
 
     @Override
     public void imprimirDemonstrativo() {
-        System.out.println("Nome do titular: " + this.titular.getNome());
-        System.out.println("Agência: " + this.agencia);
-        System.out.println("Número da conta: " + this.numero);
-        System.out.printf("Saldo da conta: R$ %.2f%n", this.saldo);
+        super.imprimirDemonstrativo();
+        System.out.printf("Saldo Disponível: R$ %.2f%n", valorDisponivel());
     }
 
+    public double getTarifaMensal() {
+        return tarifaMensal;
+    }
+
+    public double getLimiteChequeEspecial() {
+        return limiteChequeEspecial;
+    }
+
+    public void setLimiteChequeEspecial(double limiteChequeEspecial) {
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+
+    public void setTarifaMensal(double tarifaMensal) {
+        this.tarifaMensal = tarifaMensal;
+    }
 }
