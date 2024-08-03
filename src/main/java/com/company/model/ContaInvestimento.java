@@ -4,15 +4,17 @@ public class ContaInvestimento extends Conta {
 
     protected double valorTotalRendimentos;
 
-    public ContaInvestimento(Titular titular, int agencia, int numero, double valorTotalRendimentos) {
+    public ContaInvestimento(Titular titular, int agencia, int numero) {
         super(titular, agencia, numero);
-        this.valorTotalRendimentos = valorTotalRendimentos;
     }
 
     public void creditarRendimentos(double percentualJuros) {
         double valorRendimentos = (getSaldo() * percentualJuros) / 100;
         this.valorTotalRendimentos += valorRendimentos;
-        depositar(this.valorTotalRendimentos);
+
+        if (this.valorTotalRendimentos > 0) {
+            depositar(this.valorTotalRendimentos);
+        }
     }
 
 }
