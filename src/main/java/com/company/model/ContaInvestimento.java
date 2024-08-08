@@ -2,10 +2,15 @@ package com.company.model;
 
 public class ContaInvestimento extends Conta {
 
-    protected double valorTotalRendimentos;
+    private double valorTotalRendimentos;
 
     public ContaInvestimento(Titular titular, int agencia, int numero) {
         super(titular, agencia, numero);
+    }
+
+    @Override
+    public boolean possuiGratuidadeImpressao() {
+        return getValorTotalRendimentos() > 0;
     }
 
     public void creditarRendimentos(double percentualJuros) {
@@ -17,4 +22,11 @@ public class ContaInvestimento extends Conta {
         }
     }
 
+    public double getValorTotalRendimentos() {
+        return valorTotalRendimentos;
+    }
+
+    public void setValorTotalRendimentos(double valorTotalRendimentos) {
+        this.valorTotalRendimentos = valorTotalRendimentos;
+    }
 }

@@ -10,10 +10,16 @@ public class ContaEspecial extends ContaInvestimento {
         this.tarifaMensal = tarifaMensal;
     }
 
+    @Override
+    public boolean possuiGratuidadeImpressao() {
+        return tarifaMensal > 0;
+    }
+
     public void debitarTarifaMensal() {
         sacar(getTarifaMensal());
     }
 
+    @Override
     public double valorDisponivel() {
         return getSaldo() + getLimiteChequeEspecial();
     }
@@ -21,7 +27,8 @@ public class ContaEspecial extends ContaInvestimento {
     @Override
     protected void preValidarValorSaque(double valorSaque) {
         if (valorDisponivel() < valorSaque) {
-            throw new IllegalStateException(String.format("Saldo da conta menor que o valor solicitado. Saldo em conta: %.2f", saldo));
+            throw new IllegalStateException(String.format("Saldo disponivel menor que o valor solicitado." +
+                    " Saldo disponivel em conta: %.2f", valorDisponivel()));
         }
     }
 

@@ -41,6 +41,10 @@ public class Conta {
         return numero;
     }
 
+    public boolean possuiGratuidadeImpressao() {
+        return false;
+    }
+
     protected void preValidarValorSaque(double valorSaque) {
         if (valorSaque <= 0) {
             throw new IllegalStateException("Valor do saque deve ser maior que 0");
@@ -73,6 +77,10 @@ public class Conta {
 
     }
 
+    public double valorDisponivel() {
+        return getSaldo();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,7 +95,6 @@ public class Conta {
         if (this.getTitular() != conta.getTitular()) return false;
 
         return true;
-
 
     }
 
